@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080d13">
+  <meta name="description" content="NQ Pulse is a simulated, educational Nasdaq-100 futures dashboard created as a student web development project.">
+  <title>NQ Pulse | Simulated NQ Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Fixed navigation keeps the main dashboard sections close at hand. -->
+  <header class="topbar">
+    <a class="brand" href="#dashboard" aria-label="NQ Pulse home">
+      <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span>NQ<span class="brand-light">PULSE</span></span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a class="nav-link active" href="#dashboard">Dashboard</a>
+      <a class="nav-link" href="#trade-setup">Trade Setup</a>
+      <a class="nav-link" href="#risk">Risk</a>
+      <a class="nav-link" href="#about">About</a>
+    </nav>
+    <div class="topbar-right">
+      <span class="clock-label">LOCAL TIME</span>
+      <time class="clock mono" id="local-clock" aria-label="Your local time">--:--:--</time>
+      <span class="live-dot" aria-hidden="true"></span>
+    </div>
+  </header>
+
+  <main id="dashboard">
+    <!-- Dashboard title and the clear educational-data notice. -->
+    <section class="intro page-width" aria-labelledby="page-title">
+      <div>
+        <div class="eyebrow"><span class="eyebrow-line"></span> FUTURES / CME / NQ</div>
+        <h1 id="page-title">NQ <span>Pulse</span></h1>
+        <p class="intro-subtitle">Nasdaq-100 Futures Trading Dashboard</p>
+        <p class="intro-copy">A simulated market snapshot for learning the language of futures.</p>
+      </div>
+      <div class="simulation-note"><span class="sim-icon">i</span><span><strong>EDUCATIONAL SIMULATION</strong><br>All figures are fictional examples, not live market data.</span></div>
+    </section>
+
+    <div class="page-width dashboard-grid">
+      <!-- Simulated quote and custom inline SVG intraday chart. -->
+      <section class="panel market-panel" aria-labelledby="market-title">
+        <div class="section-heading market-heading">
+          <div><div class="eyebrow">MARKET OVERVIEW <span class="sim-tag">SIMULATED</span></div><h2 id="market-title">Nasdaq-100 E-mini</h2></div>
+          <span class="session-chip"><span class="status-dot open"></span> New York session</span>
+        </div>
+        <div class="quote-row">
+          <div class="quote-price-wrap"><span class="quote-label">NQ <span class="sim-tag">SIM</span></span><div class="quote-price mono">24,850.25</div></div>
+          <div class="quote-change"><span class="change-value mono">+125.50</span><span class="change-percent mono">+0.51%</span><span class="change-caption">SIMULATED CHANGE</span></div>
+          <div class="quote-meta"><span>CONTRACT</span><strong class="mono">NQ · E-mini</strong></div>
+        </div>
+        <div class="chart-heading"><div><span class="chart-title">Intraday price</span><span class="chart-subtitle">Illustrative price movement</span></div><span class="chart-range mono">1D <span>·</span> SIMULATED</span></div>
+        <div class="chart-wrap">
+          <svg class="price-chart" viewBox="0 0 860 260" role="img" aria-labelledby="chart-title chart-desc" preserveAspectRatio="none">
+            <title id="chart-title">Illustrative simulated intraday NQ price chart</title>
+            <desc id="chart-desc">A green line moves gradually higher through a fictional trading session, with a final simulated quote of 24,850.25.</desc>
+            <defs>
+              <linearGradient id="chart-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4ce0ac" stop-opacity=".19"/><stop offset="100%" stop-color="#4ce0ac" stop-opacity="0"/></linearGradient>
+              <linearGradient id="chart-stroke" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#45bc99"/><stop offset="100%" stop-color="#72f0bf"/></linearGradient>
+            </defs>
+            <g class="chart-grid"><path d="M0 24H860 M0 76H860 M0 128H860 M0 180H860 M0 232H860"/><path d="M100 0V240 M260 0V240 M420 0V240 M580 0V240 M740 0V240"/></g>
+            <g class="chart-y-labels mono"><text x="850" y="19" text-anchor="end">24,900</text><text x="850" y="71" text-anchor="end">24,875</text><text x="850" y="123" text-anchor="end">24,850</text><text x="850" y="175" text-anchor="end">24,825</text><text x="850" y="227" text-anchor="end">24,800</text></g>
+            <path class="chart-area" d="M0 197 L28 186 L54 190 L82 166 L110 177 L138 153 L166 160 L194 143 L222 151 L250 129 L278 138 L306 116 L334 126 L362 109 L390 118 L418 91 L446 101 L474 84 L502 95 L530 72 L558 80 L586 62 L614 76 L642 49 L670 63 L698 45 L726 56 L754 32 L782 46 L810 26 L838 37 L860 20 L860 240 L0 240Z"/>
+            <path class="chart-line" d="M0 197 L28 186 L54 190 L82 166 L110 177 L138 153 L166 160 L194 143 L222 151 L250 129 L278 138 L306 116 L334 126 L362 109 L390 118 L418 91 L446 101 L474 84 L502 95 L530 72 L558 80 L586 62 L614 76 L642 49 L670 63 L698 45 L726 56 L754 32 L782 46 L810 26 L838 37 L860 20"/>
+            <g class="volume-bars"><rect x="24" y="222" width="8" height="18"/><rect x="56" y="215" width="8" height="25"/><rect x="88" y="227" width="8" height="13"/><rect x="120" y="212" width="8" height="28"/><rect x="152" y="219" width="8" height="21"/><rect x="184" y="206" width="8" height="34"/><rect x="216" y="224" width="8" height="16"/><rect x="248" y="210" width="8" height="30"/><rect x="280" y="216" width="8" height="24"/><rect x="312" y="201" width="8" height="39"/><rect x="344" y="215" width="8" height="25"/><rect x="376" y="209" width="8" height="31"/><rect x="408" y="196" width="8" height="44"/><rect x="440" y="204" width="8" height="36"/><rect x="472" y="211" width="8" height="29"/><rect x="504" y="192" width="8" height="48"/><rect x="536" y="204" width="8" height="36"/><rect x="568" y="198" width="8" height="42"/><rect x="600" y="187" width="8" height="53"/><rect x="632" y="200" width="8" height="40"/><rect x="664" y="183" width="8" height="57"/><rect x="696" y="195" width="8" height="45"/><rect x="728" y="177" width="8" height="63"/><rect x="760" y="188" width="8" height="52"/><rect x="792" y="170" width="8" height="70"/><rect x="824" y="180" width="8" height="60"/></g>
+            <circle class="chart-end" cx="860" cy="20" r="4"/>
+            <g class="chart-x-labels mono"><text x="0" y="258">09:30</text><text x="205" y="258">11:00</text><text x="420" y="258">12:30</text><text x="635" y="258">14:00</text><text x="860" y="258" text-anchor="end">16:00</text></g>
+          </svg>
+        </div>
+        <div class="chart-legend"><span><i class="legend-line"></i> NQ price · simulated</span><span><i class="legend-volume"></i> Illustrative volume</span></div>
+      </section>
+
+      <!-- Compact market statistics with fictional values. -->
+      <section class="stats-panel" aria-labelledby="stats-title">
+        <div class="section-heading"><div><div class="eyebrow">SESSION SNAPSHOT <span class="sim-tag">SIMULATED</span></div><h2 id="stats-title">Market Stats</h2></div></div>
+        <div class="stats-list">
+          <article class="stat-card"><span class="stat-icon high-icon" aria-hidden="true">↗</span><div><span class="stat-label">Session High</span><strong class="stat-value mono">24,890.00</strong></div><span class="stat-period">TODAY</span></article>
+          <article class="stat-card"><span class="stat-icon low-icon" aria-hidden="true">↘</span><div><span class="stat-label">Session Low</span><strong class="stat-value mono">24,710.50</strong></div><span class="stat-period">TODAY</span></article>
+          <article class="stat-card"><span class="stat-icon atr-icon" aria-hidden="true">±</span><div><span class="stat-label">ATR <span class="stat-hint">(14)</span></span><strong class="stat-value mono">182.40 <small>pts</small></strong></div><span class="stat-period">SIM</span></article>
+          <article class="stat-card"><span class="stat-icon volume-icon" aria-hidden="true">▥</span><div><span class="stat-label">Volume</span><strong class="stat-value mono">186.2K <small>contracts</small></strong></div><span class="stat-period">SIM</span></article>
+        </div>
+        <p class="stats-footnote">Example figures for educational use only.</p>
+      </section>
+
+      <!-- Fictional setup values and a purely local presentation toggle. -->
+      <section class="panel setup-panel" id="trade-setup" aria-labelledby="setup-title">
+        <div class="section-heading setup-heading"><div><div class="eyebrow">PLAN THE TRADE <span class="sim-tag">SIMULATED</span></div><h2 id="setup-title">Trade Setup</h2></div><button class="setup-toggle" id="setup-toggle" type="button" aria-pressed="false"><span class="toggle-icon" aria-hidden="true">⇄</span><span id="toggle-label">Switch to Neutral</span></button></div>
+        <div class="setup-banner" id="setup-banner"><span class="setup-pulse" aria-hidden="true"></span><span><strong id="setup-mode">Bullish Setup</strong><small id="setup-mode-caption">FICTIONAL EDUCATIONAL EXAMPLE</small></span><span class="setup-position mono" id="setup-position">LONG</span></div>
+        <div class="setup-values">
+          <div class="setup-value"><span>Entry</span><strong class="mono">24,850</strong><em>SIMULATED</em></div>
+          <div class="setup-value"><span>Stop Loss</span><strong class="mono">24,800</strong><em>SIMULATED</em></div>
+          <div class="setup-value"><span>Take Profit</span><strong class="mono">24,950</strong><em>SIMULATED</em></div>
+          <div class="setup-value reward-value"><span>Risk / Reward</span><strong class="mono">1 : 2</strong><em>EXAMPLE</em></div>
+        </div>
+        <p class="setup-disclaimer">Fictional educational example, not a real trading signal.</p>
+      </section>
+
+      <!-- Session schedule uses example hours and descriptive status labels. -->
+      <section class="panel sessions-panel" aria-labelledby="sessions-title">
+        <div class="section-heading"><div><div class="eyebrow">GLOBAL MARKETS</div><h2 id="sessions-title">Trading Sessions</h2></div><span class="timezone mono">UTC</span></div>
+        <div class="session-list">
+          <div class="session-row"><span class="session-marker asia-marker"></span><span class="session-name">Asia</span><span class="session-hours mono">00:00 — 09:00</span><span class="session-state muted-state"><i></i> Closed</span></div>
+          <div class="session-row"><span class="session-marker london-marker"></span><span class="session-name">London</span><span class="session-hours mono">08:00 — 17:00</span><span class="session-state muted-state"><i></i> Closed</span></div>
+          <div class="session-row current-session"><span class="session-marker ny-marker"></span><span class="session-name">New York</span><span class="session-hours mono">13:30 — 20:00</span><span class="session-state active-state"><i></i> Example active</span></div>
+        </div>
+        <p class="sessions-footnote">Illustrative session hours shown in UTC.</p>
+      </section>
+
+      <!-- Three foundational risk reminders, separate from the setup example. -->
+      <section class="panel risk-panel" id="risk" aria-labelledby="risk-title">
+        <div class="section-heading"><div><div class="eyebrow">PROCESS OVER PREDICTION</div><h2 id="risk-title">Risk Management</h2></div><span class="risk-mark" aria-hidden="true">!</span></div>
+        <ol class="risk-list">
+          <li><span class="risk-number mono">01</span><span>Define risk before entering</span><span class="rule-check" aria-hidden="true">✓</span></li>
+          <li><span class="risk-number mono">02</span><span>Use a stop loss</span><span class="rule-check" aria-hidden="true">✓</span></li>
+          <li><span class="risk-number mono">03</span><span>Avoid risking more than your planned amount</span><span class="rule-check" aria-hidden="true">✓</span></li>
+        </ol>
+      </section>
+
+      <!-- Project context and the required student-project attribution. -->
+      <section class="about-panel" id="about" aria-labelledby="about-title">
+        <div class="about-rule"></div>
+        <div class="eyebrow">THE PROJECT</div>
+        <h2 id="about-title">About NQ Pulse</h2>
+        <p>NQ Pulse was created by Ananda Ravinder as a student web development project for ISM 3113 at the University of South Florida, demonstrating web development and financial concepts. Every market value shown here is simulated for learning purposes.</p>
+        <span class="about-caption">BUILT FOR LEARNING <span>·</span> NOT FOR EXECUTION</span>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer repeats the simulation disclaimer so it remains visible at a glance. -->
+  <footer class="footer">
+    <div class="page-width footer-inner"><a class="footer-brand" href="#dashboard"><span class="footer-mark">NQ</span> PULSE</a><span class="footer-credit">Built by Ananda Ravinder</span><span class="footer-disclaimer">Educational project — simulated data only. Not financial advice.</span><a class="back-top" href="#dashboard" aria-label="Back to top">↑</a></div>
+  </footer>
+</body>
+</html>
